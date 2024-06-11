@@ -189,7 +189,7 @@ class onlineJudge:
             for idx, (sample_i, sample_o) in enumerate(zip(samples_i, samples_o)):
                 sleep(0.2)
                 pbar.update(10)
-
+                
                 out = self.execFile(sample_i)
                 out = self.sanitizeData(out)
                 sample_o = self.sanitizeData(sample_o)
