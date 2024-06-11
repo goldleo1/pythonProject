@@ -9,7 +9,7 @@ import time
 from time import sleep
 import os
 import cpuinfo
-from deploy.argParse import ArgParser
+from argParse import ArgParser
 
 class Color:
     def __init__(self) -> None:
@@ -181,13 +181,13 @@ class onlineJudge:
                 print(f'File Format {ext} is not supported')
                 exit()
         except:
-            raise Exception(color.red("입력 형식 오류"))
+            raise Exception(color.red("파일 실행 중 에러 발생 (입력형식확인)"))
     def test(self):
         isSuccess = True
-
-        with tqdm(total=len(samples_i),ascii=' =',ncols=70) as pbar:
+        ncols = 10*len(samples_i)
+        with tqdm(total=len(samples_i),ascii=' =',ncols=ncols) as pbar:
             for idx, (sample_i, sample_o) in enumerate(zip(samples_i, samples_o)):
-                sleep(1)
+                sleep(0.2)
                 pbar.update(10)
 
                 out = self.execFile(sample_i)
@@ -222,7 +222,7 @@ if __name__ == '__main__':
     args = ArgParser()
     args.addInt('prob')
     args.addStr('f')
-    args.addOption('s')
+    args.addInt('s')
     parsed = args.get()
 
     if 's' in parsed.keys():
