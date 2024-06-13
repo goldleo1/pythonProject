@@ -77,10 +77,7 @@ class ArgParser:
                 raise Exception('Need a value : float')
         elif self.types[key] == str:
             if not self._isKey(argv[idx+1]):
-                if argv[idx+1].isdigit():
-                    self.result[key] = argv[idx+1]
-                else:
-                    raise Exception('Unexpected type {} - str required'.format(type(argv[idx+1])))
+                self.result[key] = argv[idx+1]
             else:
                 raise Exception('Need a value : str')
         return True

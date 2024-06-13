@@ -242,9 +242,8 @@ if __name__ == '__main__':
             file_name = f'{prob_num}.py'
             
     fp = os.path.join(os.getcwd(), file_name)
-    if not os.path.exists(fp): raise FileNotFoundError(f'{fp} is not found')
+    if not os.path.exists(fp): raise    (f'{fp} is not found')
 
-    show_samples = True
     judge = onlineJudge(prob_num, file_name)
     samples_i, samples_o = judge.getTests()
     
@@ -252,10 +251,12 @@ if __name__ == '__main__':
 
     print(console.bar)
 
-    print(f'''{color.purple(f'Title : {judge.title}')} 
-Description : {judge.description.replace('\n\n','\n').strip()} 
-{console.bar}
-Input : {judge.input_section.strip().replace('\n\n','\n')}      
-Output : {judge.output_section.strip().replace('\n\n','\n')}''')
+    print(color.purple(f'Title : {judge.title}'))
+    print(f"Description : {judge.description.replace('\n\n','\n').strip()} ")
+    print(console.bar)
+    print(f"Input : {judge.input_section.strip().replace('\n\n','\n')}")
+    print(f"Output : {judge.output_section.strip().replace('\n\n','\n')}''')")
     
     judge.test()
+
+    
