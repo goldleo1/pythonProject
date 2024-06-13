@@ -2,8 +2,6 @@ import requests
 from bs4 import BeautifulSoup
 import subprocess
 import sys
-import typing
-import sys
 from tqdm import tqdm, trange
 import time
 from time import sleep
@@ -73,7 +71,7 @@ config = '''
 
 #? 로딩창
 
-# https:/dreamhack.io/\@0.0.0.0:80/flag#
+
 #! 업데이트할거
 #? 0. 실행시간, UI개선
 #? 1. 틀리면 data, output 출력
@@ -220,9 +218,9 @@ if __name__ == '__main__':
 
 
     args = ArgParser()
-    args.addInt('prob')
-    args.addStr('f')
-    args.addInt('s')
+    args.setInt('prob')
+    args.setStr('f')
+    args.setInt('s')
     parsed = args.get()
 
     if 's' in parsed.keys():

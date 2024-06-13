@@ -28,22 +28,22 @@ class ArgParser:
     def _toKeys(self, keyStr):
         return keyStr[1:]
 
-    def addAnything(self, key):
+    def setAnything(self, key):
         self.types[key] = typing.Any
         self.keys.append(key)
-    def addOption(self, key):
+    def setOption(self, key):
         self.types[key] = True
         self.keys.append(key)
-    def addBool(self, key):
+    def setBool(self, key):
         self.types[key] = bool
         self.keys.append(key)
-    def addInt(self, key):
+    def setInt(self, key):
         self.types[key] = int
         self.keys.append(key)
-    def addStr(self, key):
+    def setStr(self, key):
         self.types[key] = int
         self.keys.append(key)
-    def addFloat(self, key):
+    def setFloat(self, key):
         self.types[key] = float
         self.keys.append(key)
 
@@ -101,9 +101,9 @@ class ArgParser:
 
 if __name__ == '__main__':
     arg = ArgParser()
-    arg.addAnything('key')
-    arg.addInt('count')
-    arg.addFloat('float')
+    arg.setAnything('key')
+    arg.setInt('count')
+    arg.setFloat('float')
 
     parsed = arg.get()
     print(parsed)
