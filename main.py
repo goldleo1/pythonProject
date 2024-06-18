@@ -193,7 +193,7 @@ class onlineJudge:
                 sample_o = self.sanitizeData(sample_o)
 
                 if special: #? 스페셜 저지 구현 | 미완성
-                    if int(out)-int(sample_o) < .1 ** special:
+                    if float(out)-float(sample_o) < .1 ** special:
                         continue
                     else:
                         isSuccess = False
